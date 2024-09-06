@@ -1,0 +1,38 @@
+<div id="bus-schedule">
+    <h2>Bus Schedule Information</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Bus Number</th>
+                <th>Arrival Time</th>
+                <th>Departure Time</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="bus-info">
+            <!-- Bus schedule data will be dynamically added here -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function loadBusSchedule() {
+        var scheduleData = [
+            {busNo: "123", arrival: "9:00 AM", departure: "9:15 AM", status: "On Time"},
+            {busNo: "124", arrival: "10:00 AM", departure: "10:15 AM", status: "Delayed"},
+        ];
+
+        var scheduleTable = document.getElementById('bus-info');
+        scheduleData.forEach(function (bus) {
+            var row = `<tr>
+                        <td>${bus.busNo}</td>
+                        <td>${bus.arrival}</td>
+                        <td>${bus.departure}</td>
+                        <td>${bus.status}</td>
+                       </tr>`;
+            scheduleTable.innerHTML += row;
+        });
+    }
+
+    window.onload = loadBusSchedule;
+</script>
